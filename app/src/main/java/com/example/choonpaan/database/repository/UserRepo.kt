@@ -30,4 +30,6 @@ class UserRepo(val context: Context) {
     fun update(user: User) = userDao.update(user)
 
     fun delete(user: User) = userDao.delete(user)
+
+    fun getUserByEmail(email:String)=userDao.getUserByEmail(email)
 }

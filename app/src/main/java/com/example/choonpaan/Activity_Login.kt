@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.choonpaan.database.entity.User
+import com.onepos.posandroidv2.database.repository.UserRepo
 
 class Activity_Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +27,19 @@ class Activity_Login : AppCompatActivity() {
         }
 
         signbtn.setOnClickListener {
-            val intent= Intent(this,RegistrationActivity::class.java)
-            startActivity(intent)
+            var repo=UserRepo.getInstance(this)
+            var user: User? = repo.getUserByEmail("email")
+            if (user == null){
+
+            }
+            else{
+                if (pw==user.password){
+
+                }
+            }
+
+//            val intent= Intent(this,RegistrationActivity::class.java)
+//            startActivity(intent)
         }
     }
 }

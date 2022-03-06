@@ -36,7 +36,9 @@ abstract class AppDatabase :RoomDatabase(){
                         .addCallback(object: Callback(){
                             override fun onCreate(db: SupportSQLiteDatabase) {
                                 super.onCreate(db)
-
+                                Executors.newSingleThreadExecutor().execute {
+                                    getInstance(context).itemDao().insertAll(*Item.populate())
+                                }
                             }
                         })
                         .build()

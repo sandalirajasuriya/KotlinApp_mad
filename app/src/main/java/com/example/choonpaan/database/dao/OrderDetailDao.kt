@@ -2,7 +2,6 @@ package com.example.choonpaan.database.dao
 
 import androidx.room.*
 import com.example.choonpaan.database.entity.OrderDetail
-import java.sql.Timestamp
 
 
 @Dao

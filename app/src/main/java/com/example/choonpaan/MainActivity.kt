@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.app.NotificationCompat
+import com.example.choonpaan.database.entity.Item
+import com.example.choonpaan.database.repository.ItemRepo
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         val loginbtn: Button =findViewById(R.id.buttonLogin)
         val signupbtn:Button=findViewById(R.id.signUpButton)
+
+        val repo= ItemRepo.getInstance(this)
+        var all=repo.getall()
 
         loginbtn.setOnClickListener {
             val intent= Intent(this,Activity_Login::class.java)
