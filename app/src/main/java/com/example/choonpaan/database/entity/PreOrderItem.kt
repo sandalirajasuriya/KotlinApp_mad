@@ -1,17 +1,14 @@
 package com.example.choonpaan.database.entity
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "item")
+@Entity(tableName = "pre_order_item",foreignKeys = [ForeignKey(entity = Item::class,parentColumns = ["id"],childColumns = ["item_id"])])
 
-data class Item(
+data class PreOrderItem(
     @PrimaryKey var id: Int?,
-    var name:String,
-    var price:Double,
-    var image:String,
-    var is_new_arrival:Boolean,
-    var is_favourite:Boolean,
+    var item_id:Int,
     var is_active:Boolean,
     var is_delete:Boolean
 )

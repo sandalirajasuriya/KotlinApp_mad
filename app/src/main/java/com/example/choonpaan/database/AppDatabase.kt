@@ -10,11 +10,14 @@ import com.example.choonpaan.database.dao.*
 import com.example.choonpaan.database.entity.*
 import java.util.concurrent.Executors
 
-@Database(entities = [ User::class,Item::class],version = 1)
+@Database(entities = [ User::class,Item::class,PreOrderItem::class,Order::class,OrderDetail::class],version = 1)
 
 abstract class AppDatabase :RoomDatabase(){
     abstract fun userDao(): UserDao
     abstract fun itemDao(): ItemDao
+    abstract fun preOrderItemDao(): PreOrderItemDao
+    abstract fun orderDao(): OrderDao
+    abstract fun orderDetailDao(): OrderDetailDao
 
     companion object{
         @Volatile
